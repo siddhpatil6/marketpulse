@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">market-pulse</string>
+    <string name="title_activity_crieteria">CrieteriaActivity</string>
 </resources>
