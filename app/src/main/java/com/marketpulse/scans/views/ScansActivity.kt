@@ -46,7 +46,7 @@ class ScansActivity : AppCompatActivity() {
         Observer { data ->
             var linearLayoutManager = LinearLayoutManager(this)
             rvCriteria.layoutManager = linearLayoutManager
-            scansListAdapter= ScansListAdapter(data)
+            scansListAdapter= ScansListAdapter(data,this)
             rvCriteria.adapter=scansListAdapter
             rvCriteria.adapter?.notifyDataSetChanged()
 

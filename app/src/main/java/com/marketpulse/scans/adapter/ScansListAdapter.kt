@@ -2,11 +2,13 @@ package com.marketpulse.scans.adapter
 
 import android.app.Activity
 import android.content.Intent
+import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.marketpulse.R
+import com.marketpulse.scans.models.Criteria
 import com.marketpulse.scans.models.ScansModel
 import com.marketpulse.scans.views.CriteriaActivity
 import kotlinx.android.extensions.LayoutContainer
@@ -31,11 +33,12 @@ public class ScansListAdapter(val scanList:ArrayList<ScansModel>,var activity: A
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.tvName.text=scanList.get(position).name
-        holder.itemView.tvTag.text=scanList.get(position).color
+        holder.itemView.tvTag.text=scanList.get(position).tag
 
         holder.itemView.setOnClickListener {
-            var criteraActivity= Intent(activity,CriteriaActivity::class.java)
-            activity.startActivity(criteraActivity)
+            var criteraIntent= Intent(activity,CriteriaActivity::class.java)
+            criteraIntent.putParcelableArrayListExtra("criteria",scanList.get(position).criteria)
+            activity.startActivity(criteraIntent)
         }
     }
 
