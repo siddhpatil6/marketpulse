@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.activity_scans.*
 
 class ScansActivity : AppCompatActivity() {
 
-    var scansResponseModle: LiveData<ArrayList<ScansModel>>? = null
     lateinit var scansListAdapter: ScansListAdapter
 
     private lateinit var scansVM: ScansVM
@@ -27,13 +26,14 @@ class ScansActivity : AppCompatActivity() {
         callScansList()
 
     }
-
+    /*------------------ Intitialization-----------------------*/
     fun intitialize()
     {
         Util.setToolbar(this, tbScans, "Scans")
     }
 
 
+    /*------------------ API Call For Scan List-----------------------*/
     private fun callScansList()
     {
         scansVM = ViewModelProviders.of(this).get(ScansVM::class.java)
